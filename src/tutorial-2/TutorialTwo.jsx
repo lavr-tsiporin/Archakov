@@ -14,7 +14,7 @@ export const TutorialTwo = () => {
     e.preventDefault();
 
     if (email === '' || password === '') {
-      return alert('sos');
+      return alert('Need fill all inputs');
     }
 
     console.log({ login: email, password });
