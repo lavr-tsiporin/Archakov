@@ -1,9 +1,9 @@
-import { TutorialOne } from "./tutorial-1/TutorialOne";
+import { TutorialOne } from './tutorial-1/TutorialOne';
 
 export function App() {
   return (
     <div>
-      <TutorialOne/>
+      <TutorialOne />
     </div>
   );
 }
