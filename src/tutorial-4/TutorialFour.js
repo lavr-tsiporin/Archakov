@@ -71,7 +71,7 @@ export const TutorialFour = () => {
       {strArr.length > 0 ? <Phrase source={strArr} /> : <EmptyBlock />}
       <button
         className="btn btn_generate"
-        onClick={() => setStrArr([...strArr, handleRandomStr()])}>
+        onClick={() => setStrArr([handleRandomStr(), ...strArr])}>
         Сгенерировать
       </button>
       <button className="btn btn_clear" onClick={() => setStrArr([])}>
