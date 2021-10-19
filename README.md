@@ -7,4 +7,5 @@
 
 1. Tutorial #1 completed
 2. Tutorial #2 completed
-3. Tutorial #3 start
+3. Tutorial #3 completed
+4. Tutorial #4 start
