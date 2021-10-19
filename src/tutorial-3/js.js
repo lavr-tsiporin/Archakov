@@ -12,7 +12,7 @@ class Todos {
     this._root.innerHTML = ``
     localStorage.setItem('todos', JSON.stringify(this._todos));
     this._todos
-      .map((task, idx) => {
+      .forEach((task, idx) => {
         const li = document.createElement('li');
         const btn = document.createElement('button');
 
@@ -28,29 +28,26 @@ class Todos {
         li.textContent = task;
         li.append(btn);
 
-        return li;
+        this._root.append(li)
       })
-      .forEach((tsk) => this._root.append(tsk));
   }
 
   handleClickAdd(todo) {
-    if (todo !== '') {
+    if (todo) {
       this._todos = [...this._todos, todo];
       this.render();
     }
   }
 
   handleClickRemove(id) {
-    this._todos = [...this._todos].filter((_, idx) => idx !== id);
+    this._todos = this._todos.filter((_, idx) => idx !== id);
     this.render();
   }
 }
 
 const todos = new Todos(document.querySelector('.root'));
 
-document.addEventListener('DOMContentLoaded', () => {
-  todos.init();
-});
+document.addEventListener('DOMContentLoaded', () => todos.init());
 
 document.querySelector('[name=todos_form]').addEventListener('submit', (e) => {
   e.preventDefault();
