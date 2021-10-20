@@ -50,17 +50,17 @@ const nounsArr = [
 export const TutorialFour = () => {
   const [strArr, setStrArr] = useState([]);
 
-  const handleRandomNumber = (length) => {
+  const generateRandomNumber = (length) => {
     return Math.floor(Math.random() * length);
   };
 
-  const handleRandomStr = () => {
-    let str1 = adjectivesArr[handleRandomNumber(adjectivesArr.length)];
-    let str2 = adjectivesArr[handleRandomNumber(adjectivesArr.length)];
-    const str3 = nounsArr[handleRandomNumber(nounsArr.length)];
+  const generateRandomStr = () => {
+    let str1 = adjectivesArr[generateRandomNumber(adjectivesArr.length)];
+    let str2 = adjectivesArr[generateRandomNumber(adjectivesArr.length)];
+    const str3 = nounsArr[generateRandomNumber(nounsArr.length)];
 
     if (str1 === str2) {
-      str1 = adjectivesArr[handleRandomNumber(adjectivesArr.length)];
+      str1 = adjectivesArr[generateRandomNumber(adjectivesArr.length)];
     }
 
     return `${str1} ${str2} ${str3}`;
@@ -71,7 +71,7 @@ export const TutorialFour = () => {
       {strArr.length > 0 ? <Phrase source={strArr} /> : <EmptyBlock />}
       <button
         className="btn btn_generate"
-        onClick={() => setStrArr([handleRandomStr(), ...strArr])}>
+        onClick={() => setStrArr([generateRandomStr(), ...strArr])}>
         Сгенерировать
       </button>
       <button className="btn btn_clear" onClick={() => setStrArr([])}>
