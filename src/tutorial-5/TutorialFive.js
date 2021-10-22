@@ -4,10 +4,9 @@ import { Form } from './components/Form/Form';
 import { FeedbackList } from './components/FeedbackList/FeedbackList';
 
 export const TutorialFive = () => {
-  const [feedbacksData, setFeedbacksData] = useState(() => {
-    return JSON.parse(localStorage.getItem('comments')) || [];
-  });
-
+  const [feedbacksData, setFeedbacksData] = useState(
+    JSON.parse(localStorage.getItem('comments')) || [],
+  );
   const handleAddFeedback = (obj) => {
     setFeedbacksData([...feedbacksData, obj]);
   };

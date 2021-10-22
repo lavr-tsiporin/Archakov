@@ -9,7 +9,7 @@ import {
   ListItemText,
   Card,
   IconButton,
-  Typography
+  Typography,
 } from '@mui/material';
 
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
@@ -30,18 +30,17 @@ export const FeedbackList = ({ feedbacks, onDeleteFeedback }) => {
                       <PersonOutlineIcon />
                     </Avatar>
                   </ListItemAvatar>
-                  <ListItemText primary={feedback.fullName} secondary={
-                    <React.Fragment>
-                      <Typography
-                        sx={{ display: 'block' }}
-                        component="span"
-                        variant="body2"
-                      >
-                        {feedback.createdAt}
-                      </Typography>
-                      {feedback.text}
-                    </React.Fragment>
-                  } />
+                  <ListItemText
+                    primary={feedback.fullName}
+                    secondary={
+                      <React.Fragment>
+                        <Typography sx={{ display: 'block' }} component="span" variant="body2">
+                          {feedback.createdAt}
+                        </Typography>
+                        {feedback.text}
+                      </React.Fragment>
+                    }
+                  />
                   <IconButton onClick={() => onDeleteFeedback(id)}>
                     <DeleteIcon />
                   </IconButton>

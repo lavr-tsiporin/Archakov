@@ -7,7 +7,7 @@ export const Form = ({ onAddFeedback }) => {
     email: '',
     text: '',
     error: {
-      name: false,
+      fullName: false,
       email: false,
       text: false,
     },
@@ -15,24 +15,16 @@ export const Form = ({ onAddFeedback }) => {
 
   const refreshFormAndAddFeedback = () => {
     const error = {
-      name: false,
+      fullName: false,
       email: false,
       text: false,
     };
 
-    if (formData.fullName === '') {
-      error.name = true;
-    }
+    Object.keys(error).forEach((key) => {
+      error[key] = !formData[key];
+    });
 
-    if (formData.email === '') {
-      error.email = true;
-    }
-
-    if (formData.text === '') {
-      error.text = true;
-    }
-
-    if (error.name || error.email || error.text) {
+    if (error.fullName || error.email || error.text) {
       return setFormData({ ...formData, error });
     }
 
@@ -41,7 +33,7 @@ export const Form = ({ onAddFeedback }) => {
       email: '',
       text: '',
       error: {
-        name: false,
+        fullName: false,
         email: false,
         text: false,
       },
@@ -52,6 +44,17 @@ export const Form = ({ onAddFeedback }) => {
       email: formData.email,
       createdAt: new Date().toDateString(),
       text: formData.text,
+    });
+  };
+
+  const updateDataFeedback = (e, key) => {
+    setFormData({
+      ...formData,
+      [key]: e.target.value,
+      error: {
+        ...formData.error,
+        [key]: false,
+      },
     });
   };
 
@@ -66,18 +69,9 @@ export const Form = ({ onAddFeedback }) => {
             label="Имя"
             variant="outlined"
             margin="dense"
-            error={formData.error.name}
+            error={formData.error.fullName}
             value={formData.fullName}
-            onChange={(e) =>
-              setFormData({
-                ...formData,
-                fullName: e.target.value,
-                error: {
-                  ...formData.error,
-                  name: false,
-                },
-              })
-            }
+            onChange={(e) => updateDataFeedback(e, 'fullName')}
             required
           />
           <TextField
@@ -88,16 +82,7 @@ export const Form = ({ onAddFeedback }) => {
             margin="dense"
             error={formData.error.email}
             value={formData.email}
-            onChange={(e) =>
-              setFormData({
-                ...formData,
-                email: e.target.value,
-                error: {
-                  ...formData.error,
-                  email: false,
-                },
-              })
-            }
+            onChange={(e) => updateDataFeedback(e, 'email')}
             required
           />
           <TextField
@@ -110,16 +95,7 @@ export const Form = ({ onAddFeedback }) => {
             rows={4}
             error={formData.error.text}
             value={formData.text}
-            onChange={(e) =>
-              setFormData({
-                ...formData,
-                text: e.target.value,
-                error: {
-                  ...formData.error,
-                  text: false,
-                },
-              })
-            }
+            onChange={(e) => updateDataFeedback(e, 'text')}
             required
           />
           <Button
