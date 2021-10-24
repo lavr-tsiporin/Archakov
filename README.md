@@ -10,3 +10,4 @@
 3. Tutorial #3 completed
 4. Tutorial #4 completed
 5. Tutorial #5 completed
+6. Tutorial #6 start
