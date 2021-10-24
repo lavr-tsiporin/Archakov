@@ -50,7 +50,7 @@ export const TutorialSix = () => {
         </Row>
       )}
       {/* ТУТ ДОПИСАТЬ РОУТ НА ПОЛНУЮ ЗАПИСЬ */}
-      {/\/post\//.test(pathname) && <Article id={pathname.match(/\/post\/(.+)/)[1]} />}
+      {pathname.includes('/post/') && <Article pathname={pathname} />}
       {pathname === '/about' && (
         <Card>
           <Card.Body>Это мой личный сайт!</Card.Body>

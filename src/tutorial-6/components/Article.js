@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const Article = ({ id }) => {
+export const Article = ({ pathname }) => {
+  const id = pathname.split('/post/')
+
   return (
     <div>
       <h1>Статья №{id}</h1>
