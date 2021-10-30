@@ -4,6 +4,7 @@ import { TutorialFour } from './tutorial-4/TutorialFour';
 import { TutorialFive } from './tutorial-5/TutorialFive';
 import { TutorialSix } from './tutorial-6/TutorialSix';
 import { TutorialSeven } from './tutorial-7/TutorialSeven';
+import { TutorialEight } from './tutorial-8/TutorialEight';
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
       <TutorialFive />
       <TutorialSix />
       <TutorialSeven />
+      <TutorialEight />
     </div>
   );
 }
